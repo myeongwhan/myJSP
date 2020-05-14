@@ -1,0 +1,79 @@
+---------------------------------------------------------------
+1. 메인 폼 요청
+	요청내용: / 또는 /main.cls
+	파라미터: 무
+	컨트롤러: com.increpas.www.controller.MainController
+	뷰		: /main.jsp
+---------------------------------------------------------------
+1. 로그인 폼 요청
+	요청내용: /member/login.cls
+	파라미터: 무
+	컨트롤러: com.increpas.www.controller.member.LoginForm
+	뷰		: /member/Login.jsp
+---------------------------------------------------------------
+2. 로그인 처리 요청
+	요청내용: /member/loginProc.cls
+	파라미터: id, pw
+	컨트롤러: com.increpas.www.controller.member.LoginProc
+	뷰		: redirect(
+---------------------------------------------------------------
+# 방명록 폼 요청
+	요청내용: 
+	파라미터: 
+	컨트롤러: com.increpas.www.controller.
+	뷰		: 
+---------------------------------------------------------------
+# 방명록 처리 요청
+	요청내용: 
+	파라미터: 
+	컨트롤러: com.increpas.www.controller.
+	뷰		: 
+---------------------------------------------------------------
+# 방명록 쓰기 폼 요청
+	요청내용: 
+	파라미터: 
+	컨트롤러: com.increpas.www.controller.
+	뷰		: 
+---------------------------------------------------------------
+# 댓글게시판 폼 요청
+	요청내용: /reBoard/reBoard.cls
+	파라미터: nowPage
+	컨트롤러: com.increpas.www.controller.reBoard.ReBoardList
+	뷰		: /reBoard/reBoard.jsp
+---------------------------------------------------------------
+# 댓글게시판 글입력 폼보기 처리 요청
+	요청내용: /reBoard/reBoardWrite.cls
+	파라미터: 무
+	컨트롤러: com.increpas.www.controller.reBoard.ReBoardWrite
+	뷰		: /reBoard/reBoardWrite.jsp
+---------------------------------------------------------------
+# 댓글게시판 댓글입력 폼보기 처리 요청
+	요청내용: /reBoard/reBoardReply.cls
+	파라미터: nowPage
+	컨트롤러: com.increpas.www.controller.reBoard.ReBoardReply
+	뷰		: /reBoard/reBoardReply.jsp
+---------------------------------------------------------------
+# 댓글게시판 댓글입력 처리 요청
+	요청내용: /reBoard/reBoardRplProc.cls
+	파라미터: nowPage, body
+	컨트롤러: com.increpas.www.controller.reBoard.ReBoardRplProc
+	뷰		: /reBoard/reBoardRplRedirect.jsp
+---------------------------------------------------------------
+# 댓글게시판 게시글 쓰기 처리 요청
+	요청내용: /reBoard/reBoardProc.cls
+	파라미터: reno, mno, body, upno
+	컨트롤러: com.increpas.www.controller.reBoard.
+	뷰		: 
+---------------------------------------------------------------
+# 댓글게시판 게시글 수정 요청
+	요청내용: /reBoard/reBoardEdit.cls
+	파라미터: reno, body
+	컨트롤러: com.increpas.www.controller.reBoard.
+	뷰		: 
+---------------------------------------------------------------
+# 댓글게시판 게시글 삭제 요청
+	요청내용: /reBoard/reBoardDel.cls
+	파라미터: reno
+	컨트롤러: com.increpas.www.controller.reBoard.
+	뷰		: 
+---------------------------------------------------------------
