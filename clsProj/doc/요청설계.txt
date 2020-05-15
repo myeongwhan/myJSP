@@ -77,3 +77,23 @@
 	컨트롤러: com.increpas.www.controller.reBoard.
 	뷰		: 
 ---------------------------------------------------------------
+---------------------------------------------------------------
+# 설문게시판 요청 처리
+1. 설문지 보기 처리 요청
+	요청내용: /survey/survey.cls
+	파라미터: 무
+	컨트롤러: com.increpas.www.controller.survey.Survey
+	뷰		: /survey/survey.jsp
+---------------------------------------------------------------
+2. 설문응답 처리 요청
+	요청내용: /survey/surveyProc.cls
+	파라미터: sno, sino, sack
+	컨트롤러: com.increpas.www.controller.survey.SurveyProc
+	뷰		: redirect: /clsProj/survey/surveyResult.cls
+---------------------------------------------------------------
+3. 설문응답 처리 요청
+	요청내용: /survey/surveyResult.cls
+	파라미터: 무
+	컨트롤러: com.increpas.www.controller.survey.SurveyResult
+	뷰		: redirect: /survey/surveyResult.jsp
+---------------------------------------------------------------
