@@ -61,3 +61,19 @@ html, body {
 .pd-0 {
 	padding: 0px0px!important;
 }
+.pd-left-10 {
+	padding-left: 10px;
+	
+}
+.pd-left-20 {
+	padding-left: 20px;
+	
+}
+.pv-50 {
+	padding-top: 50px;
+	padding-bottom: 50px;
+}
+.pd-left-80 {
+	padding-left: 80px;
+	
+}
