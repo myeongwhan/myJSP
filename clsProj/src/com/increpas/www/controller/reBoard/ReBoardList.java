@@ -16,10 +16,13 @@ public class ReBoardList implements ClsController {
 		// 받아야 할 데이터가 있으므로 꺼내고
 		int nowPage = 1;
 		String strPage = req.getParameter("nowPage");
-		try {
-			nowPage = Integer.parseInt(strPage);
-		} catch(Exception e) {
-			e.printStackTrace();
+//		System.out.println(strPage);
+		if(strPage != null) {
+			try {
+				nowPage = Integer.parseInt(strPage);
+			} catch(Exception e) {
+				e.printStackTrace();
+			}
 		}
 //		System.out.println(strPage);
 		ReBoardDAO rDAO = new ReBoardDAO();

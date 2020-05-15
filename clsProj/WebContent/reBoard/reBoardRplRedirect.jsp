@@ -12,7 +12,7 @@
 </style>
 <script type="text/javascript">
 	$(function(){
-		alert('${param.nowPage}');
+		alert('param.nowpage = ${param.nowPage}');
 		$('#frm').submit();
 	});
 </script>

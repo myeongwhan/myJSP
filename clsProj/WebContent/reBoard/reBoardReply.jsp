@@ -18,6 +18,10 @@
 			$('#frm').submit();
 		});
 		
+		$('#cbtn').click(function(){
+			$(location).attr('href', '/clsProj/reBoard/reBoard.cls');
+		});
+		
 		$('#hbtn').click(function(){
 			$(location).attr('href', '/clsProj/main.cls');
 		});

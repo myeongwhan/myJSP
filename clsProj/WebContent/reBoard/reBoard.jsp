@@ -21,8 +21,8 @@
 				url = '/clsProj/member/logoutProc.cls';
 			} else if(tid == 'home'){
 				url = '/clsProj/main.cls';
-			} else if(tid == 'write'){ // 댓글쓰기버튼
-				url = '/clsProj/reBoard/reBoardWrite.cls';
+			} else if(tid == 'write'){ // 댓글(원문)쓰기버튼
+				url = '/clsProj/reBoard/reBoardReply.cls';
 			}
 			
 			$(location).attr('href', url);
