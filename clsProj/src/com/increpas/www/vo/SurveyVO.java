@@ -12,7 +12,7 @@ package com.increpas.www.vo;
 import java.sql.*;
 import java.text.*;
 public class SurveyVO {
-	private int sino, sno, mno, srvno, sack1, sack2, sack3, sack4;
+	private int sino, sno, mno, srvno, sack1, sack2, sack3, sack4, saTotal;
 	private String title, sq, sa1, sa2, sa3, sa4, sDate;
 	private Date bDate, eDate, inDate;
 	private Time bTime, eTime, inTime;
@@ -45,24 +45,37 @@ public class SurveyVO {
 	}
 	public void setSack1(int sack1) {
 		this.sack1 = sack1;
+		setSaTotal();
 	}
 	public int getSack2() {
 		return sack2;
 	}
 	public void setSack2(int sack2) {
 		this.sack2 = sack2;
+		setSaTotal();
 	}
 	public int getSack3() {
 		return sack3;
 	}
 	public void setSack3(int sack3) {
 		this.sack3 = sack3;
+		setSaTotal();
 	}
 	public int getSack4() {
 		return sack4;
 	}
 	public void setSack4(int sack4) {
 		this.sack4 = sack4;
+		setSaTotal();
+	}
+	public int getSaTotal() {
+		return saTotal;
+	}
+	public void setSaTotal() {	// 설문에 참여한 인원 총 수
+		this.saTotal = sack1 + sack2 + sack3 + sack4;
+	}
+	public void setSaTotal(int saTotal) {
+		this.saTotal = saTotal;
 	}
 	public String getTitle() {
 		return title;

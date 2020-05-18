@@ -21,10 +21,12 @@ public class Survey implements ClsController {
 		
 		// sino와 title이 항상 같으니 여기서 바로 뽑아버림
 		int sino = list.get(0).getSino();
+		int mno = list.get(0).getMno();
 		String title = list.get(0).getTitle();
 		
 		// 데이터 넘겨주고
 		req.setAttribute("SINO", sino);
+		req.setAttribute("MNO", mno);
 		req.setAttribute("TITLE", title);
 		req.setAttribute("LIST", list);
 		

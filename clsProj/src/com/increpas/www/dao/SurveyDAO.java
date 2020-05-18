@@ -80,10 +80,13 @@ public class SurveyDAO {
 		ArrayList<Integer> kList = new ArrayList<Integer>(keys);
 		
 		for(int no : kList) {
-			String tmp = sql;
-			tmp.replaceAll("###", map.get(no));
+			/*
+				String tmp = sql; 
+				tmp = tmp.replaceAll("#", map.get(no));
+			 */
 			// pstmt
-			pstmt = db.getPstmt(con, tmp);
+			pstmt = db.getPstmt(con, sql.replaceAll("#", map.get(no)));
+			
 			try {
 				// 질의명령 완성
 				pstmt.setInt(1, no);
@@ -125,5 +128,121 @@ public class SurveyDAO {
 		return cnt;
 	}
 	
+	// 설문 결과페이지 db작업 전담처리 함수
+	public ArrayList<SurveyVO> getResult(int sino) {
+		ArrayList<SurveyVO> list = new ArrayList<SurveyVO>();
+		// 커넥션
+		con = db.getCon();
+		// sql
+		String sql = sSQL.getSQL(sSQL.SEL_RESULT);
+		// pstmt
+		pstmt = db.getPstmt(con, sql);
+		try {
+			// sql 완성
+			pstmt.setInt(1, sino);
+			// sql 보내고 결과받고
+			rs = pstmt.executeQuery();
+			// 데이터 꺼내서 vo에 담고
+			while(rs.next()) {
+				SurveyVO sVO = new SurveyVO();
+				sVO.setSno(rs.getInt("sno"));
+				sVO.setSino(rs.getInt("sino"));
+				sVO.setTitle(rs.getString("title"));
+				sVO.setSq(rs.getString("sq"));
+				sVO.setSa1(rs.getString("sa1"));
+				sVO.setSa2(rs.getString("sa2"));
+				sVO.setSa3(rs.getString("sa3"));
+				sVO.setSa4(rs.getString("sa4"));
+				sVO.setSack1(rs.getInt("sack1"));
+				sVO.setSack2(rs.getInt("sack2"));
+				sVO.setSack3(rs.getInt("sack3"));
+				sVO.setSack4(rs.getInt("sack4"));
+				
+				// vo 리스트에 담고
+				list.add(sVO);
+			}
+		} catch(Exception e) {
+			e.printStackTrace();
+		} finally {
+			db.close(rs);
+			db.close(pstmt);
+			db.close(con);
+		}
+		// 리스트 반환하고
+		return list;
+	}
+	
+	// 설문 정보 데이터베이스 입력 전담처리 함수
+	public int addSurveyInfo(String title, String start, String end) {
+		int cnt = 0;
+		int sino = 0;
+		// 1. 커넥션
+		con = db.getCon();
+		// 2. sql
+		String sql = sSQL.getSQL(sSQL.ADD_SINFO);
+		// 3. pstmt
+		pstmt = db.getPstmt(con, sql);
+		try {
+			// 4. 질의명령 완성하고
+			pstmt.setString(1, title);
+			pstmt.setString(2, start);
+			pstmt.setString(3, end);
+			// 5. 질의명령 보내고 결과받고
+			cnt = pstmt.executeUpdate();
+		} catch(Exception e) {
+			e.printStackTrace();
+		} finally {
+			db.close(pstmt);
+//			db.close(con);	(아래에서 또 써야됨 주의)
+		}
+		// 6. 결과에 따라서 처리해주는데
+		if(cnt == 1) {
+			// 6-1 스테이트먼트 가져오고
+			stmt = db.getStmt(con);
+			// 6-2 질의명령 가져오고
+			sql = sSQL.getSQL(sSQL.SEL_SINO);
+			// 6-3 질의명령 보내고 결과받고
+			try {
+				rs = stmt.executeQuery(sql);
+				// 6-4 결과에서 데이터 꺼내고
+				rs.next();
+				sino = rs.getInt("sino");
+			} catch(SQLException e) {
+				e.printStackTrace();
+			} finally {
+				db.close(rs);
+				db.close(stmt);
+				db.close(con);
+			}
+		} else {
+			db.close(con);
+		}
+		
+		// 7. 결과 반환하고
+		return sino;
+	}
+	
+	// 설문참여기록 조회 데이터베이스 작업 전담처리 함수
+	public int getRecord(int mno) {
+		int cnt = 0;
+		con = db.getCon();
+		String sql = sSQL.getSQL(sSQL.SEL_SRV_ID);
+		pstmt = db.getPstmt(con, sql);
+		try {
+			pstmt.setInt(1, mno);
+			rs = pstmt.executeQuery();
+			rs.next();
+			
+			cnt = rs.getInt("cnt");
+		} catch(Exception e) {
+			e.printStackTrace();
+		} finally {
+			db.close(rs);
+			db.close(pstmt);
+			db.close(con);
+		}
+		
+		return cnt;
+	}
 	
 }

@@ -36,6 +36,8 @@
 				url = '/clsProj/reBoard/reBoard.cls';
 			} else if(tid == 'survey'){
 				url = '/clsProj/survey/survey.cls';
+			} else if(tid == 'surveyAdd'){
+				url = '/clsProj/survey/surveyAdd.cls';
 			}
 			
 			$(location).attr('href', url);
@@ -59,6 +61,7 @@
 				<div class="btn w-150 inblock w3-button w3-pink w-margin" id="gBoard">gBoard</div>
 				<div class="btn w-150 inblock w3-button w3-orange w-margin" id="reBoard">reBoard</div>
 				<div class="btn w-150 inblock w3-button w3-black w-margin" id="survey">survey</div>
+				<div class="btn w-150 inblock w3-button w3-gray w-margin" id="surveyAdd">surveyAdd</div>
 			</c:if>
 		</div>
 	</div>

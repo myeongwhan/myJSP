@@ -32,6 +32,7 @@
 			<div class="w3-col w3-border w3-card w3-margin-bottom pv-50">
 				<form method="post" action="/clsProj/survey/surveyProc.cls" id="frm">
 					<input type="hidden" name="sino" value="${SINO}">
+					<input type="hidden" name="mno" value="${MNO}">
 				
 				<c:forEach var="data" items="${LIST}" varStatus="st">
 					<input type="hidden" name="sno" value="${data.sno}">

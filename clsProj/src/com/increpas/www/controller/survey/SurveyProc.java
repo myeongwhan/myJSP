@@ -15,6 +15,9 @@ public class SurveyProc implements ClsController {
 		String view = "/clsProj/survey/surveyResult.cls";
 		req.setAttribute("isRedirect", true);
 		
+		String mno = req.getParameter("mno");
+		System.out.println(mno);
+		
 		String id = (String)req.getSession().getAttribute("SID");
 		if(id == null || id.length() == 0) {
 			view = "/clsProj/survey/survey.cls";	// (에러페이지로 보내질 상황)
@@ -58,6 +61,8 @@ public class SurveyProc implements ClsController {
 			return view;
 		}
 		cnt = sDao.addRecord(sino, id);
+		
+		view = view + "?sino=" + strsino;
 		return view;
 	}
 
