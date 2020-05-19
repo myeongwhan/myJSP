@@ -3,20 +3,22 @@ $(document).ready(function(){
 	$('#idck').click(function(){
 		// 1. 입력태그에 입력된 아이디 가져오고
 		var sid = $('#id').val();
-		alert('중복확인 정규식안만듦');
+//		alert('중복확인 정규식안만듦');
 		if(sid) {
+			
+			alert("****************");
 			$.ajax({
-				url: '../id.check',
+				url: '/clsProj/member/id.ck',
 				type: 'POST',
 				dataType: 'json',
 				data: {
 					'id': sid
 				},
 				success: function(data) {
-					var result = data.result;
-					if(result == 'ok'){
+					var result = data.cnt;
+					if(result == 0){
 						// 아이디 사용 가능한 경우
-						$('#idmsg').text('### 사용 가능한 아이디입니다 ###');
+						$('#idmsg').text('*** 사용 가능한 아이디입니다 ***');
 						$('#idmsg').css('color', 'blue');
 						$('#idmsg').css('display', '');
 						
@@ -28,11 +30,11 @@ $(document).ready(function(){
 						$('#id').val('');
 						$('#id').focus();
 						
-						$('#idCont').css('display', '');
-						$('#getId').html(data.id);
-						$('#getName').html(data.name);
-						$('#getTel').html(data.tel);
-						$('#getMail').html(data.mail);
+//						$('#idCont').css('display', '');
+//						$('#getId').html(data.id);
+//						$('#getName').html(data.name);
+//						$('#getTel').html(data.tel);
+//						$('#getMail').html(data.mail);
 					}
 				},
 				error: function() {
@@ -60,7 +62,7 @@ $(document).ready(function(){
 	});
 	
 	// 프사 미리보기
-	$('#profile').change(function(e){
+	$('#file').change(function(e){
 		var img = URL.createObjectURL(e.target.files[0]);
 //		document.getElementById('img').setAttribute('src', img);
 		$('#img').attr('src', img);
@@ -71,7 +73,7 @@ $(document).ready(function(){
 //		document.getElementById('genbox').innerHTML = '<img class="w3-padding imgsize" src="../img/img_avatar1.png"><img class="w3-padding imgsize" src="../img/img_avatar2.png"><img class="w3-padding imgsize" src="../img/img_avatar3.png">'
 		$('#genbox').html('<label class=" rel2 w3-col m3 w3-right-align w3-padding" style="padding-left:0px!important">아바타 선택 : </label><div class="w3-col m9 rel"><input type="radio" id="avt1" name="avtgen" class="w3-radio"><label for="avt1"><img class=" w3-button imgsize" src="../img/img_avatar1.png"></label><input type="radio" id="avt2" name="avtgen" class="w3-radio"><label for="avt2"><img class=" w3-button imgsize" src="../img/img_avatar2.png"></label><input type="radio" id="avt3" name="avtgen" class="w3-radio"><label for="avt3"><img class=" w3-button imgsize" src="../img/img_avatar3.png"></label></div>');
 	});
-	$('#W').click(function(){
+	$('#F').click(function(){
 //		document.getElementById('genbox').innerHTML = '<img class="w3-padding imgsize" src="../img/img_avatar4.png"><img class="w3-padding imgsize" src="../img/img_avatar5.png"><img class="w3-padding imgsize" src="../img/img_avatar6.png">'
 		$('#genbox').html('<label class=" rel2 w3-col m3 w3-right-align w3-padding" style="padding-left:0px!important">아바타 선택 : </label><div class="w3-col m9 rel"><input type="radio" id="avt4" name="avtgen" class="w3-radio"><label for="avt4"><img class=" w3-button imgsize" src="../img/img_avatar4.png"></label><input type="radio" id="avt5" name="avtgen" class="w3-radio"><label for="avt5"><img class=" w3-button imgsize" src="../img/img_avatar5.png"></label><input type="radio" id="avt6" name="avtgen" class="w3-radio"><label for="avt6"><img class=" w3-button imgsize" src="../img/img_avatar6.png"></label></div>');
 	});
@@ -90,12 +92,14 @@ $(document).ready(function(){
 	}
 	
 	// 가입/취소얼럿
-	$('#sign').click(function(){
-		alert('가입완료 서밋 안만듦');
+	$('#jbtn').click(function(){
+//		alert('가입완료 서밋 안만듦');
+		// 데이터 무결성 검사해야됨
+		
 		$('#frm').submit();
 	});
-	$('#cancel').click(function(){
-		alert('홈으로돌아감 홈링크안만듦');
+	$('#hbtn').click(function(){
+//		alert('홈으로돌아감 홈링크안만듦');
 		
 	});
 	

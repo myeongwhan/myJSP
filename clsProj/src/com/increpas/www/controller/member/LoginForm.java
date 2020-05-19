@@ -5,7 +5,7 @@ import java.io.IOException;
 import javax.servlet.http.*;
 
 import com.increpas.www.controller.*;
-import com.increpas.www.dao.memberDAO;
+import com.increpas.www.dao.MemberDAO;
 
 public class LoginForm implements ClsController {
 

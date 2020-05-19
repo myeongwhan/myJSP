@@ -70,7 +70,7 @@
 <body>
 	<div class="w3-col l3 m3"><p></p></div>
 	<div class="w3-col l6 m6 s12">
-		<form class="w3-col" method="post" action="ff.html" name="frm" id="frm">
+		<form class="w3-col" method="post" action="/clsProj/member/joinProc.cls" name="frm" id="frm" encType="multipart/form-data">
 			<div class="w3-col w3-padding w3-blue w3-card">
 				<h3 class="w3-center">Increpas Join</h3>
 			</div>
@@ -86,10 +86,10 @@
 					</div>
 					<p class="w3-col w3-center" id="idmsg" style="display: none;"></p>
 					<div class="w3-col w3-center" id="idCont" style="display: none;">
-						<h4 class="w3-col m6">I D : </h4><h4 class="w3-col m6" id="getId"></h4>
+						<!-- <h4 class="w3-col m6">I D : </h4><h4 class="w3-col m6" id="getId"></h4>
 						<h4 class="w3-col m6">NAME : </h4><h4 class="w3-col m6" id="getName"></h4>
 						<h4 class="w3-col m6">TEL : </h4><h4 class="w3-col m6" id="getTel"></h4>
-						<h4 class="w3-col m6">MAIL : </h4><h4 class="w3-col m6" id="getMail"></h4>
+						<h4 class="w3-col m6">MAIL : </h4><h4 class="w3-col m6" id="getMail"></h4> -->
 						<!-- 
 							문제]
 								아이디체크 버튼을 클릭했을 때
@@ -115,9 +115,9 @@
 				</div>
 				<!-- 프사 -->
 				<div class="w3-row">
-					<label class="w3-col m3 w3-right-align w3-padding" for="profile">프사 :</label>
+					<label class="w3-col m3 w3-right-align w3-padding" for="file">프사 :</label>
 					<div class="w3-col m9 w3-padding">
-						<input class="w3-col m12" type="file" id="profile" name="profile"/>
+						<input class="w3-col m12" type="file" id="file" name="file"/>
 					</div>
 					<div class="w3-row w3-center" >
 						<img id="img" style="width: 100px; height: auto;" src="" />
@@ -149,8 +149,8 @@
 					<label class="w3-col m3 w3-right-align w3-padding" for="gen">성 별 :</label>
 					<div class="w3-col m9 w3-padding">
 						<span class="w3-col m6">
-							<input type="radio" id="M" name="M"><label for="M">남자</label>
-							<input type="radio" id="W" name="M" style="margin-left: 10px;"><label for="W">여자</label>
+							<input type="radio" id="M" name="gen" value="M"><label for="M">남자</label>
+							<input type="radio" id="F" name="gen" value="F" style="margin-left: 10px;"><label for="F">여자</label>
 						</span>
 					</div>
 				</div>
@@ -186,8 +186,8 @@
 			</div>
 		</form>
 		<!-- 확인취소버튼 -->
-		<div class="w3-col m6 w3-padding w3-card w3-center w3-blue w3-button" id="sign">sign</div>
-		<div class="w3-col m6 w3-padding w3-card w3-center w3-red w3-button" id="cancel">cancel</div>
+		<div class="w3-col m6 w3-padding w3-card w3-center w3-blue w3-button" id="jbtn">회원가입</div>
+		<div class="w3-col m6 w3-padding w3-card w3-center w3-red w3-button" id="hbtn">홈으로</div>
 	</div>
 </body>
 </html>

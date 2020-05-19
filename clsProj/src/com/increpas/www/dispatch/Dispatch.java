@@ -16,7 +16,7 @@ import javax.servlet.annotation.*;
 import javax.servlet.http.*;
 
 import com.increpas.www.controller.*;
-import com.increpas.www.dao.memberDAO;
+import com.increpas.www.dao.MemberDAO;
 
 import java.io.*;
 import java.util.*;

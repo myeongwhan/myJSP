@@ -13,7 +13,7 @@ import java.io.IOException;
 import javax.servlet.http.*;
 
 import com.increpas.www.controller.ClsController;
-import com.increpas.www.dao.memberDAO;
+import com.increpas.www.dao.MemberDAO;
 
 public class LoginProc implements ClsController {
 	public String exec(HttpServletRequest req, HttpServletResponse resp) {
@@ -21,7 +21,7 @@ public class LoginProc implements ClsController {
 		String sid = req.getParameter("id");
 		String spw = req.getParameter("pw");
 		// 2. 데이터베이스 작업에 데이터 넘기고
-		memberDAO mDao = new memberDAO();
+		MemberDAO mDao = new MemberDAO();
 		// 3. 결과 받고
 		int cnt = mDao.getCnt(sid, spw);
 		// 4. 결과에 따라서 처리하고
